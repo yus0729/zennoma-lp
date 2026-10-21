@@ -1,0 +1,205 @@
+/* zennoma.com の見た目（D233）— LP と規約類で共通。
+   色はアプリと同じ（shared/tokens.json）— 端末が暗い表示なら墨、明るい表示なら白。
+   外部の部品・フォントは読み込まない（アプリと同じく、外に何も取りに行かないページにする）。
+   【要記入】/[TBD] の印（.todo）は公開前にすべて差し替える — 目立つ色にしてある */
+
+:root {
+  --bg: #fafbfc;
+  --surface: #ffffff;
+  --ink: #15171a;
+  --ink2: #3c434a;
+  --ink3: #6a727b;
+  --hair: #e0e4e8;
+  --accent: #c0402a;
+  --serif: "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", serif;
+  --sans: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", system-ui, sans-serif;
+  color-scheme: light dark;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #050506;
+    --surface: #0b0c0e;
+    --ink: #f4f5f6;
+    --ink2: #c6cbd0;
+    --ink3: #8c939b;
+    --hair: #32363b;
+    --accent: #c9a96a;
+  }
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.8;
+}
+a { color: inherit; text-underline-offset: 3px; }
+img { max-width: 100%; height: auto; }
+
+/* 明るい・暗いで絵を出し分ける（墨の地には白い絵、白い地には墨の絵） */
+.on-ink { display: none; }
+@media (prefers-color-scheme: dark) {
+  .on-ink { display: inline; }
+  .on-paper { display: none; }
+}
+
+/* ── いちばん上と下 ─────────────────────────────── */
+.top {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.top .wordmark img { height: 28px; width: auto; display: block; }
+.lang { font-size: 14px; color: var(--ink3); }
+.lang a, .lang span { margin-left: 12px; }
+.lang span { color: var(--ink); }
+
+.foot {
+  max-width: 960px;
+  margin: 96px auto 0;
+  padding: 32px 24px 48px;
+  border-top: 1px solid var(--hair);
+  font-size: 14px;
+  color: var(--ink3);
+}
+.foot nav { display: flex; flex-wrap: wrap; gap: 8px 24px; margin-bottom: 16px; }
+.foot nav a { text-decoration: none; }
+.foot nav a:hover { text-decoration: underline; }
+
+/* ── LP ─────────────────────────────────────────── */
+.hero {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 72px 24px 48px;
+  text-align: center;
+}
+.hero .enso { width: 240px; margin: 0 auto 32px; display: block; }
+.hero h1 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(32px, 6vw, 48px);
+  line-height: 1.35;
+  margin: 0 0 24px;
+}
+.hero .claim {
+  font-family: var(--serif);
+  font-size: clamp(17px, 2.6vw, 20px);
+  color: var(--ink2);
+  margin: 0 auto 16px;
+  max-width: 36em;
+}
+.hero .lead { color: var(--ink3); margin: 0 auto 40px; max-width: 36em; }
+.cta { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 50px;
+  padding: 0 28px;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 16px;
+  text-decoration: none;
+}
+.button.primary { background: var(--ink); color: var(--bg); }
+.button.quiet { background: color-mix(in srgb, var(--ink) 8%, transparent); color: var(--ink); border: 0.5px solid var(--hair); }
+.button.soon { opacity: 0.55; pointer-events: none; }
+
+.section {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 56px 24px 0;
+}
+.section h2 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(24px, 4vw, 30px);
+  margin: 0 0 32px;
+  text-align: center;
+}
+.steps, .features, .promises {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+.steps li, .features li, .promises li {
+  background: var(--surface);
+  border: 0.5px solid var(--hair);
+  border-radius: 16px;
+  padding: 24px;
+}
+.steps .num { font-family: var(--serif); color: var(--accent); font-size: 14px; letter-spacing: 2px; }
+.steps h3, .features h3, .promises h3 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 20px;
+  margin: 4px 0 8px;
+}
+.steps p, .features p, .promises p { margin: 0; color: var(--ink3); font-size: 15px; line-height: 1.7; }
+.note { text-align: center; color: var(--ink3); font-size: 14px; margin-top: 24px; }
+
+/* ── 規約類 ─────────────────────────────────────── */
+.doc {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 48px 24px 0;
+}
+.doc h1 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(26px, 5vw, 34px);
+  line-height: 1.4;
+  margin: 0 0 8px;
+}
+.doc .dates { color: var(--ink3); font-size: 14px; margin: 0 0 32px; }
+.doc h2 {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 40px 0 12px;
+}
+.doc h3 { font-size: 16px; font-weight: 600; margin: 24px 0 8px; }
+.doc p, .doc li { color: var(--ink2); }
+.doc ol, .doc ul { padding-left: 1.4em; }
+.doc li { margin: 6px 0; }
+.doc .summary {
+  background: var(--surface);
+  border: 0.5px solid var(--hair);
+  border-radius: 16px;
+  padding: 20px 24px;
+  margin: 0 0 32px;
+}
+.doc .summary ul { margin: 8px 0 0; }
+.doc table { width: 100%; border-collapse: collapse; margin: 16px 0; }
+.doc th, .doc td {
+  text-align: left;
+  vertical-align: top;
+  padding: 14px 12px;
+  border-bottom: 0.5px solid var(--hair);
+  color: var(--ink2);
+  font-size: 15px;
+}
+.doc th { width: 32%; color: var(--ink); font-weight: 600; }
+@media (max-width: 560px) {
+  .doc th, .doc td { display: block; width: 100%; padding: 8px 0; border: none; }
+  .doc td { padding-bottom: 16px; border-bottom: 0.5px solid var(--hair); }
+}
+
+/* 公開前に差し替える印 */
+.todo {
+  background: #ffe35c;
+  color: #15171a;
+  padding: 0 4px;
+  border-radius: 4px;
+  font-weight: 600;
+}
