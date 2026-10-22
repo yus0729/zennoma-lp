@@ -3,95 +3,131 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ZENnoMA — 集中は、ひと呼吸から。</title>
-<meta name="description" content="一日を組み、90秒の呼吸から集中へ。ZENnoMAは、スケジュール・集中・瞑想をつなぐアプリ。自分の時間を、自分のペースで。">
+<title>ZENnoMA | 集中は、ひと呼吸から。</title>
+<meta name="description" content="集中できないのは、意志が弱いからではない。状態が整っていないからだ。ZENnoMA は90秒の呼吸で状態を整えてから、集中を始めるアプリです。連続日数も広告も追跡もありません。">
 <meta name="theme-color" content="#050506">
-<meta property="og:title" content="ZENnoMA — 集中は、ひと呼吸から。">
-<meta property="og:description" content="一日を組み、90秒の呼吸から集中へ。ZENnoMAは、スケジュール・集中・瞑想をつなぐアプリ。自分の時間を、自分のペースで。">
+<meta property="og:title" content="ZENnoMA | 集中は、ひと呼吸から。">
+<meta property="og:description" content="90秒の呼吸で状態を整えてから、集中を始める。">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://zennoma.com/ja/">
 <link rel="canonical" href="https://zennoma.com/ja/">
-<link rel="stylesheet" href="/site.css">
-<link rel="stylesheet" href="/landing.css">
-<link rel="icon" href="/assets/icon-192.png">
-<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="alternate" hreflang="en" href="https://zennoma.com/">
 <link rel="alternate" hreflang="ja" href="https://zennoma.com/ja/">
 <link rel="alternate" hreflang="x-default" href="https://zennoma.com/">
+<link rel="icon" href="/assets/icon-192.png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<script>document.documentElement.classList.add("js");try{if(localStorage.getItem("zennoma.site.theme")==="light")document.documentElement.dataset.theme="light"}catch(e){}</script>
+<link rel="stylesheet" href="/site.css">
+<link rel="stylesheet" href="/lp/lp.css">
+<link rel="stylesheet" href="/lp/lp-sections.css">
 <script src="/site.js" defer></script>
+<script type="module" src="/lp/scenes.js"></script>
+<script type="module" src="/lp/breath.js"></script>
 </head>
 <body class="landing">
-<a class="skip-link" href="#main">本文へ移動</a>
-<div class="atmosphere" aria-hidden="true"></div>
+<a class="skip-link" href="#main">本文へ</a>
 <header class="top">
   <a class="wordmark" href="/ja/" aria-label="ZENnoMA"><img class="on-ink" src="/assets/brand-on-ink.png" alt="" width="144" height="48"><img class="on-paper" src="/assets/brand-on-paper.png" alt="" width="144" height="48"></a>
-  <nav class="site-nav" aria-label="ページ内の案内"><a href="#flow">一日の流れ</a><a href="#practice">集中と瞑想</a><a href="#promise">私たちの約束</a></nav>
   <div class="top-actions">
-    <button class="theme-toggle" type="button" data-theme-toggle aria-label="白の外観にする" hidden><svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"></path></svg><svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><path d="M20 15.5A8.5 8.5 0 0 1 8.5 4 8.5 8.5 0 1 0 20 15.5Z"></path></svg></button>
+    <button class="theme-toggle" type="button" data-theme-toggle aria-label="白の外観にする" hidden><svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></svg><svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><path d="M20 15.5A8.5 8.5 0 0 1 8.5 4 8.5 8.5 0 1 0 20 15.5Z"/></svg></button>
     <nav class="lang" aria-label="言語"><a href="/" hreflang="en" lang="en">EN</a><span aria-current="page">日本語</span></nav>
   </div>
 </header>
-<main id="main" class="wrap">
+
+<main id="main">
   <section class="hero" aria-labelledby="hero-title">
-    <div class="hero-copy">
-      <p class="eyebrow" lang="en">A little space. A clearer focus.</p>
-      <h1 id="hero-title">集中は、<br>ひと呼吸から。</h1>
-      <p class="hero-intro">一日を組み、呼吸で切り替え、<br>今やることを、ひとつずつ。<br>自分の時間を、自分のペースで。</p>
-      <div class="cta"><a class="button primary" href="https://app.zennoma.com">Webで、はじめる<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"></path></svg></a><a class="text-link" href="#flow">ZENnoMAについて <span aria-hidden="true">↓</span></a></div>
-      <p class="availability">基本の集中・瞑想は無料。iOSアプリは近日公開。</p>
+    <div class="hero-enso" aria-hidden="true">
+      <canvas data-hero-enso></canvas>
+      <img class="hero-still on-ink" src="/assets/enso-on-ink.png" alt="" width="1200" height="1200"><img class="hero-still on-paper" src="/assets/enso-on-paper.png" alt="" width="1200" height="1200">
     </div>
-    <div class="hero-visual">
-      <div class="enso-stage">
-        <img class="on-ink" src="/assets/enso-on-ink.png" alt="" width="640" height="640"><img class="on-paper" src="/assets/enso-on-paper.png" alt="" width="640" height="640">
-        <div class="enso-content"><div data-breath-initial><div class="breath-number">90</div><p class="breath-unit" lang="en">Seconds to begin</p></div><div data-breath-guide hidden><p class="breath-phase" data-breath-phase aria-live="polite" aria-atomic="true"></p><span class="breath-progress" data-breath-progress></span></div></div>
+    <h1 id="hero-title">集中は、ひと呼吸から。</h1>
+    <p class="hero-lead">ZENnoMA は、90秒の呼吸で状態を整えてから、集中を始めるアプリです。</p>
+    <div class="actions">
+      <button class="button primary" type="button" data-breath-open>90秒、呼吸してみる</button>
+      <a class="button quiet" href="https://app.zennoma.com">Web で使う</a>
+    </div>
+    <p class="small">無料で始められます。iPhone アプリは近日公開です。</p>
+  </section>
+
+  <section class="why" aria-labelledby="why-title">
+    <h2 id="why-title" class="visually-hidden">ZENnoMA の考え方</h2>
+    <p class="manifesto"><span class="reveal">集中できないのは、</span><span class="reveal">意志が弱いからではない。</span><span class="reveal">状態が整っていないからだ。</span></p>
+    <p class="why-body reveal">集中をゲームにするアプリも、スマホを閉じ込めるアプリもあります。ZENnoMA がするのは、その手前のこと。90秒の呼吸で整えてから、始めます。</p>
+  </section>
+
+  <section class="loop" data-loop aria-labelledby="loop-title">
+    <div class="loop-sticky">
+      <div class="loop-stage" aria-hidden="true">
+        <canvas data-loop-enso></canvas>
+        <div class="loop-ring" data-loop-ring>
+          <svg viewBox="0 0 200 200"><circle class="ring-track" cx="100" cy="100" r="84"/><circle class="ring-mark" cx="192" cy="100" r="1.2"/><circle class="ring-mark" cx="100" cy="192" r="1.2"/><circle class="ring-mark" cx="8" cy="100" r="1.2"/><circle class="ring-arc" cx="100" cy="100" r="84" pathLength="1" transform="rotate(-90 100 100)"/><circle class="ring-head" cx="100" cy="16" r="3"/></svg>
+          <p class="loop-minutes">25<small>分</small></p>
+        </div>
       </div>
-      <button class="breath-toggle" type="button" data-breath-toggle aria-pressed="false" hidden><span class="breath-dot" aria-hidden="true"></span><span data-breath-toggle-label>90秒の呼吸を体験する</span></button>
-      <span class="visual-caption" lang="en" aria-hidden="true">BREATHE. FOCUS. BE HERE.</span>
+      <div class="loop-text">
+        <h2 id="loop-title" class="section-title">呼吸して、集中する。<br>それを、繰り返す。</h2>
+        <ol class="loop-steps">
+          <li class="loop-step is-active" data-loop-step><h3>呼吸</h3><p>5秒吸って、8秒吐く。これを6回。吐く息を長くすると、体は落ち着いていきます。数えなくても、息に合わせて円相が描かれます。</p></li>
+          <li class="loop-step" data-loop-step><h3>集中</h3><p>決めたひとつのことに、25分・45分・90分。カウントダウンはなく、細い輪が静かに満ちていくだけです。</p></li>
+          <li class="loop-step" data-loop-step><h3>また</h3><p>終わったら、ひと息ついて、また呼吸から。集中した時間は、そのまま積み上がります。</p></li>
+        </ol>
+      </div>
     </div>
   </section>
-  <div class="hero-bottom"><p>予定を立てる。その先の、集中まで。</p><a href="#flow"><span aria-hidden="true">↓</span> SCROLL TO DISCOVER</a></div>
-  <ol class="steps reveal">
-    <li><span class="step-number">01</span><div><h2>呼吸で切り替える</h2><p>まずは90秒。<br>円相に合わせて、吸う、吐く。</p></div></li>
-    <li><span class="step-number">02</span><div><h2>ひとつに取り組む</h2><p>決めたことに、決めた時間。<br>選んだ長さで、集中する。</p></div></li>
-    <li><span class="step-number">03</span><div><h2>また、今に戻る</h2><p>ひと息ついて、次の時間へ。<br>何度でも、自分のペースで。</p></div></li>
-  </ol>
-  <section id="flow" class="story" aria-labelledby="flow-title">
-    <div class="reveal"><p class="eyebrow" lang="en">Make room for now</p><h2 class="section-title" id="flow-title">一日を見渡して。<br>今を、ひとつずつ。</h2><div class="section-copy"><p>集中する時間。静かに座る時間。<br>日々の用事も、ひとつのスケジュールに。</p><p>いつもの一日は、ひな形から。<br>予定を選べば、取り組むことも時間も準備されます。<br>あとは、ひと呼吸からはじめるだけ。</p></div><div class="small-rule"></div><p class="inline-note"><span>iPhone</span> カレンダーの予定も、一緒に見られます。</p></div>
-    <div class="day-preview reveal" role="img" aria-label="スケジュールの表示例。9時から提案書に45分集中、10時に打ち合わせ、12時半に10分瞑想。">
-      <div class="preview-head"><span class="preview-title">Now</span><span class="preview-date">ある日の、午前。</span></div>
-      <p class="preview-quote">いま、ここにあることを。</p>
-      <div class="day-line current"><span class="day-time">09:00</span><div class="day-band"><strong>提案書を仕上げる</strong><small>集中 · 45分</small></div></div>
-      <div class="day-line"><span class="day-time">10:00</span><div class="day-band"><strong>チームの打ち合わせ</strong><small>予定 · 30分</small></div></div>
-      <div class="day-line"><span class="day-time">12:30</span><div class="day-band"><strong>午後の前に、ひと息</strong><small>瞑想 · 10分</small></div></div>
-      <p class="preview-caption">ZENnoMAの使い方のイメージ</p>
+
+  <section class="feature" aria-labelledby="day-title">
+    <div class="feature-text reveal">
+      <h2 id="day-title" class="section-title">一日を組んだら、<br>あとは始めるだけ。</h2>
+      <p>集中・瞑想・ほかの予定を、ひとつの予定表に並べます。その時間になると「今の時間は」に次のことが出て、押せば呼吸から始まります。</p>
+      <p class="small">いつもの日はひな形から。iPhone ではカレンダーの予定も並べて見られます（端末の外には出ません）。iPhone と Web で同じ予定です。</p>
     </div>
+    <figure class="shot reveal"><div class="shot-frame" data-shot="NOW"><img src="/assets/shots/ja/now.png" alt="NOW の画面。今の時間はと今日の予定" width="1179" height="2556" loading="lazy" onerror="this.hidden=true"></div></figure>
   </section>
-  <section id="practice" class="practice-section" aria-labelledby="practice-title">
-    <div class="section-heading reveal"><div><p class="eyebrow" lang="en">Two ways to be here</p><h2 id="practice-title" class="section-title">取り組む時間も。<br>静かに座る時間も。</h2></div><p>今日のあなたに合う時間を、<br>同じ場所から。</p></div>
-    <div class="practices reveal">
-      <article class="practice"><div class="practice-image" aria-hidden="true"><img class="on-ink" src="/assets/enso-on-ink.png" alt="" width="116" height="116" loading="lazy"><img class="on-paper" src="/assets/enso-on-paper.png" alt="" width="116" height="116" loading="lazy"></div><div><p class="eyebrow" lang="en">Focus</p><h3>今、進めたいことへ。</h3><p>仕事、勉強、読書。90秒の呼吸から、<br>選んだひとつに取り組む時間へ。</p></div></article>
-      <article class="practice"><div class="practice-image" aria-hidden="true"><img class="on-ink" src="/assets/meditation-on-ink.png" alt="" width="116" height="116" loading="lazy"><img class="on-paper" src="/assets/meditation-on-paper.png" alt="" width="116" height="116" loading="lazy"></div><div><p class="eyebrow" lang="en">Meditation</p><h3>呼吸に、気づく時間。</h3><p>静かに座り、自然な呼吸へ注意を戻す。<br>日々のあいだに、自分に向き合うひとときを。</p></div></article>
+
+  <section class="feature" aria-labelledby="sit-title">
+    <div class="feature-text reveal">
+      <h2 id="sit-title" class="section-title">静かに坐る時間も、<br>同じ場所に。</h2>
+      <p>瞑想も同じアプリの中に。長さと、雨や川などの音を選んで、自然な呼吸のまま坐ります。</p>
     </div>
+    <figure class="shot reveal"><div class="shot-frame" data-shot="瞑想"><img src="/assets/shots/ja/meditation.png" alt="瞑想の画面" width="1179" height="2556" loading="lazy" onerror="this.hidden=true"></div></figure>
   </section>
-  <section class="blocking reveal" aria-labelledby="blocking-title">
-    <div><p class="eyebrow" lang="en">A pause before the distraction</p><h2 id="blocking-title" class="section-title">気が散ったら、<br>ひと呼吸おこう。</h2><div class="section-copy"><p>iPhoneでは、集中・瞑想・予定の時間に、選んだアプリを閉じられます。</p><p>開きたくなったら、まず呼吸を。<br>そのあとで、戻るか、5分だけ開くか。<br>選ぶのは、あなたです。</p></div></div>
-    <div class="shield-preview" role="img" aria-label="ブロック機能のイメージ。集中中のアプリを開く前に、呼吸するための案内が表示されます。"><img class="on-ink" src="/assets/enso-on-ink.png" alt="" width="88" height="88" loading="lazy"><img class="on-paper" src="/assets/enso-on-paper.png" alt="" width="88" height="88" loading="lazy"><h3>いま、集中しています。</h3><p>この時間は、あなたが選んだことのために。</p><div class="shield-choice">開く前に、ひと呼吸</div><p class="preview-caption">iPhoneのブロック機能のイメージ</p></div>
+
+  <section class="feature" aria-labelledby="drift-title">
+    <div class="feature-text reveal">
+      <h2 id="drift-title" class="section-title">気が散ったら、呼吸。</h2>
+      <p>SNS を見すぎてしまった。誰にでもあることです。アプリ・ウィジェット・ロック画面から90秒の呼吸をして、決めていた予定に戻ります。</p>
+    </div>
+    <figure class="shot reveal"><div class="shot-frame" data-shot="呼吸"><img src="/assets/shots/ja/breath.png" alt="呼吸の画面" width="1179" height="2556" loading="lazy" onerror="this.hidden=true"></div></figure>
   </section>
-  <section id="promise" class="promise-section" aria-labelledby="promise-title">
-    <div class="reveal"><p class="eyebrow" lang="en">Our quiet promises</p><h2 id="promise-title" class="section-title">自分のペースを、<br>大切に。</h2><a class="promise-link" href="/ja/privacy">データの扱いについて <span aria-hidden="true"> ↗</span></a></div>
-    <ol class="promises reveal">
-      <li><span class="promise-number">01</span><div><h3>続け方は、あなたのもの。</h3><p>連続日数も、順位も、バッジもありません。記録は、取り組んだ時間をそのまま映します。</p></div></li>
-      <li><span class="promise-number">02</span><div><h3>あなたの注意を、大切に。</h3><p>広告や利用状況を分析するSDKは使いません。あなたのデータを売ることもありません。</p></div></li>
-      <li><span class="promise-number">03</span><div><h3>必要な情報だけを、必要な場所に。</h3><p>予定や記録はアカウントで同期。カレンダー・ヘルスケア・閉じるアプリの設定は、当社のサーバーに送りません。</p></div></li>
-    </ol>
+
+  <section class="feature" aria-labelledby="shield-title">
+    <div class="feature-text reveal">
+      <h2 id="shield-title" class="section-title">気が散るアプリは、<br>閉じておく。</h2>
+      <p>iPhone では、選んだアプリを、集中や瞑想のあいだと、決めた予定の時間だけ閉じます。どうしても開くときは、呼吸してから。</p>
+    </div>
+    <figure class="shot reveal"><div class="shot-frame" data-shot="閉じたアプリ"><img src="/assets/shots/ja/shield.png" alt="閉じたアプリを開こうとしたときの画面" width="1179" height="2556" loading="lazy" onerror="this.hidden=true"></div></figure>
   </section>
-  <section class="closing reveal" aria-labelledby="closing-title">
-    <img class="closing-mark on-ink" src="/assets/enso-on-ink.png" alt="" width="60" height="60" loading="lazy"><img class="closing-mark on-paper" src="/assets/enso-on-paper.png" alt="" width="60" height="60" loading="lazy">
-    <p class="eyebrow" lang="en">Your next moment</p><h2 class="section-title" id="closing-title">次の25分を、<br>あなたのために。</h2>
-    <a class="button primary" href="https://app.zennoma.com">Webで、はじめる<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"></path></svg></a>
-    <p class="note">90秒の呼吸から25分の集中へ。基本の集中と、<br>10分の瞑想を無料で使えます。一部の機能は有料です。</p><p class="availability">iOSアプリは近日公開。</p>
+
+  <section class="leave-out reveal" aria-labelledby="leave-title">
+    <h2 id="leave-title" class="section-title">やらないこと</h2>
+    <p>連続日数も、バッジも、ランキングもありません。広告を出さず、使い方の分析もしません。見えるのは、今日と今週に集中した時間。それだけです。</p>
+    <p>カレンダー・ヘルスケア・閉じるアプリの選択は、端末の外に出ません。予定と記録は、あなたのアカウントにだけ同期します。<a href="/ja/privacy">プライバシーポリシー</a></p>
+  </section>
+
+  <section class="closing" aria-labelledby="closing-title">
+    <span class="closing-enso" aria-hidden="true"><img class="on-ink" src="/assets/enso-on-ink.png" alt="" width="160" height="160" loading="lazy"><img class="on-paper" src="/assets/enso-on-paper.png" alt="" width="160" height="160" loading="lazy"></span>
+    <h2 id="closing-title" class="section-title">まずは、90秒。</h2>
+    <div class="actions"><button class="button primary" type="button" data-breath-open>90秒、呼吸してみる</button><a class="button quiet" href="https://app.zennoma.com">Web で使う</a></div>
+    <p class="small">基本の一周（呼吸・25分の集中・10分の瞑想）は無料です。そのほかの機能はサブスクリプションで使えます。</p>
   </section>
 </main>
-<footer class="foot"><nav aria-label="運営情報"><a href="/ja/terms">利用規約</a><a href="/ja/privacy">プライバシーポリシー</a><a href="/ja/legal">特定商取引法に基づく表記</a><a href="/ja/support">サポート</a></nav><p>© 2026 YenSense株式会社</p></footer>
+
+<div class="breath" data-breath data-inhale="吸う" data-exhale="吐く" role="dialog" aria-modal="true" aria-label="90秒の呼吸" hidden>
+  <button class="breath-close" type="button" data-breath-close aria-label="閉じる"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+  <div class="breath-stage"><div class="breath-ripple"></div><div class="breath-ripple"></div><canvas data-breath-enso></canvas><div class="breath-center"><p class="breath-phase" data-breath-phase aria-live="polite"></p><p class="breath-count" data-breath-count></p></div></div>
+  <div class="breath-done" data-breath-done hidden><h2>整いました。</h2><p>この状態のまま、始めましょう。</p><div class="actions"><a class="button primary" href="https://app.zennoma.com">Web で集中を始める</a><button class="button quiet" type="button" data-breath-again>もう一度</button></div></div>
+</div>
+
+<footer class="foot"><nav aria-label="案内"><a href="/ja/terms">利用規約</a><a href="/ja/privacy">プライバシーポリシー</a><a href="/ja/legal">特定商取引法に基づく表記</a><a href="/ja/support">サポート</a></nav><p>© 2026 YenSense Inc.</p></footer>
 </body>
 </html>

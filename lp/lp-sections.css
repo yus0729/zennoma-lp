@@ -1,0 +1,53 @@
+/* LP — 中ほどから: アプリの実際の画面と短い文・やらないこと・締め・足もと、と幅ごとの直し。
+   画面は CEO が iPhone で撮ったスクリーンショット（site/assets/shots/<言語>/）。
+   まだ無い画面は、枠と名前だけを出す（公開のスクリプトは、無い画面があると送る前に止める）。 */
+
+/* 文と画面を交互に（1つ目は文が左、2つ目は画面が左…） */
+.feature { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 8vw; max-width: 1080px; margin: 0 auto; padding: 12vh 40px; }
+.feature:nth-child(odd) { grid-template-columns: auto 1fr; }
+.feature:nth-child(odd) .shot { order: -1; }
+.feature-text p { max-width: 30em; margin: 0; color: var(--ink2); font-size: 16px; line-height: 2.05; }
+.feature-text p + p { margin-top: 16px; }
+.feature-text .small { color: var(--ink3); font-size: 14px; }
+.shot { margin: 0; }
+/* 画面そのものの角の丸み（幅の14%・高さの6.5%）。枠の絵は描かない */
+.shot-frame { position: relative; width: min(280px, 66vw); aspect-ratio: 1179 / 2556; overflow: hidden; border: 1px solid var(--hair); border-radius: 14% / 6.46%; background: var(--surface); }
+.shot-frame::before { content: attr(data-shot); position: absolute; inset: 0; display: grid; place-items: center; color: var(--ink3); font-size: 12px; letter-spacing: .1em; }
+.shot-frame img { position: relative; display: block; width: 100%; height: 100%; object-fit: cover; }
+
+/* やらないこと */
+.leave-out { max-width: 720px; margin: 0 auto; padding: 16vh 40px 10vh; }
+.leave-out p { margin: 0; color: var(--ink2); font-size: 16px; line-height: 2.1; }
+.leave-out p + p { margin-top: 18px; }
+.leave-out a { color: var(--ink); white-space: nowrap; }
+
+/* 締め */
+.closing { display: flex; flex-direction: column; align-items: center; padding: 14vh 24px 6vh; text-align: center; }
+.closing-enso { display: block; width: 120px; height: 120px; margin-bottom: 36px; }
+.closing-enso img { width: 100%; height: 100%; object-fit: contain; }
+.closing .actions { margin-top: 12px; }
+.closing .small { max-width: 40em; }
+.landing .foot { display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+.landing .foot p { margin: 0; }
+
+@media (max-width: 900px) {
+  .loop-steps { grid-template-columns: 1fr; gap: 36px; }
+  .loop.is-live .loop-sticky { grid-template-columns: 1fr; align-content: center; gap: 3vh; padding: 0 24px; }
+  .loop.is-live .loop-stage { width: min(66vw, 38vh); }
+  .loop.is-live .section-title { margin-bottom: 0; font-size: 24px; }
+  .loop.is-live .loop-steps { margin-top: 14px; }
+  .loop.is-live .loop-step p { font-size: 14px; line-height: 1.9; }
+  .feature, .feature:nth-child(odd) { grid-template-columns: 1fr; gap: 48px; justify-items: center; }
+  .feature:nth-child(odd) .shot { order: 0; }
+  .feature-text { justify-self: stretch; }
+}
+@media (max-width: 600px) {
+  .top-actions { gap: 0; }
+  .hero { padding-bottom: 14vh; }
+  .hero-enso { width: min(80vw, 46vh); }
+  .why { gap: 10vh; padding: 6vh 24px 16vh; }
+  .loop, .feature, .leave-out { padding-left: 24px; padding-right: 24px; }
+  .feature { padding-top: 9vh; padding-bottom: 9vh; }
+  .landing .foot { display: block; }
+  .landing .foot p { margin-top: 16px; }
+}

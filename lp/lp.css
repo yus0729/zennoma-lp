@@ -1,0 +1,89 @@
+/* LP — 上から: 書体・頭の帯・最初の円相・考え方・呼吸と集中の輪・90秒の呼吸。
+   色は墨と白と灰だけ（差し色は使わない — 金は「AIで作った感」・CEO 2026-08-14 / D235）。
+   光・粒子・傾き・見出しの上の小さなラベル・番号は使わない。外部の書体は読まない（端末の書体だけ）。 */
+:root { --display: var(--serif); }
+html[lang="en"] { --display: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif; }
+html.is-breathing { overflow: hidden; }
+body.landing { overflow-x: clip; }
+.visually-hidden { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* 頭の帯 */
+.top-actions { display: flex; align-items: center; gap: 16px; }
+.theme-toggle { display: grid; place-items: center; width: 44px; height: 44px; padding: 12px; border: 0; background: none; color: var(--ink3); }
+.theme-toggle:hover { color: var(--ink); }
+.theme-toggle svg { width: 18px; height: 18px; }
+.theme-toggle .moon, html[data-theme="light"] .theme-toggle .sun { display: none; }
+html[data-theme="light"] .theme-toggle .moon { display: block; }
+
+/* 共通 */
+.landing .button { min-height: 50px; padding: 12px 26px; border-radius: 999px; font-size: 15px; font-weight: 500; letter-spacing: 0; }
+.landing .button.quiet { border-color: var(--hair); }
+.landing .button.quiet:hover { border-color: var(--ink3); opacity: 1; }
+.actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 36px; }
+.small { margin: 20px 0 0; color: var(--ink3); font-size: 13px; line-height: 1.9; }
+.section-title { margin: 0 0 22px; font: 400 clamp(28px, 3vw, 40px)/1.3 var(--display); }
+html[lang="ja"] .section-title { font-size: clamp(24px, 2.5vw, 32px); line-height: 1.75; letter-spacing: .1em; }
+@media (prefers-reduced-motion: no-preference) {
+  html.has-observer .reveal { opacity: 0; transform: translateY(14px); transition: opacity 1.2s ease, transform 1.2s ease; }
+  html.has-observer .reveal.is-visible { opacity: 1; transform: none; }
+}
+
+/* 最初の円相 — 開くと筆が一周描く。見出しは円相の下（文字と筆を重ねない） */
+.hero { display: flex; flex-direction: column; align-items: center; padding: 1vh 24px 20vh; text-align: center; }
+.hero-enso { position: relative; width: min(50vh, 74vw, 500px); aspect-ratio: 1; margin-bottom: 5vh; }
+.hero-enso canvas, .hero-still { position: absolute; inset: 0; width: 100%; height: 100%; }
+html.js .hero-enso .hero-still { display: none !important; }
+html:not(.js) .hero-enso canvas { display: none; }
+.hero h1 { margin: 0 0 16px; font: 400 clamp(32px, 4vw, 52px)/1.25 var(--display); }
+html[lang="ja"] .hero h1 { font-size: clamp(26px, 3.2vw, 40px); line-height: 1.6; letter-spacing: .16em; }
+.hero-lead { max-width: 30em; margin: 0; color: var(--ink2); font-size: 16px; line-height: 1.9; }
+
+/* 考え方 — 売り物の主張（CLAUDE.md 第1節）。日本語は縦書き */
+.why { display: grid; justify-items: center; gap: 14vh; max-width: 1080px; margin: 0 auto; padding: 8vh 40px 22vh; }
+.manifesto { margin: 0; font: 400 clamp(26px, 3.2vw, 44px)/1.45 var(--display); text-align: center; }
+.manifesto span { display: block; }
+.manifesto .reveal:nth-child(2) { transition-delay: .4s; }
+.manifesto .reveal:nth-child(3) { transition-delay: 1s; }
+html[lang="ja"] .manifesto { writing-mode: vertical-rl; font-size: clamp(22px, 2.7vw, 34px); line-height: 2.5; letter-spacing: .28em; text-align: start; }
+.why-body { max-width: 34em; margin: 0; color: var(--ink2); font-size: 16px; line-height: 2.1; text-align: center; }
+
+/* 呼吸 → 集中 → また。既定は3つを横に並べる。JS が is-live を付けると、場面を画面に留めてスクロールで進める */
+.loop { max-width: 1080px; margin: 0 auto; padding: 10vh 40px; }
+.loop-stage { display: none; }
+.loop-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 48px; margin: 40px 0 0; padding: 0; list-style: none; }
+.loop-step h3 { margin: 0 0 12px; font: 400 clamp(22px, 2.2vw, 30px)/1.3 var(--display); }
+html[lang="ja"] .loop-step h3 { letter-spacing: .2em; }
+.loop-step p { max-width: 28em; margin: 0; color: var(--ink2); font-size: 15px; line-height: 2; }
+.ring-track { fill: none; stroke: var(--hair); stroke-width: 1; }
+.ring-mark { fill: var(--ink3); }
+.ring-arc { fill: none; stroke: var(--ink); stroke-width: 2; stroke-linecap: round; stroke-dasharray: 0 1; }
+.ring-head { fill: var(--ink); }
+.loop.is-live { max-width: none; height: 320vh; padding: 0; }
+.loop.is-live .loop-sticky { position: sticky; top: 0; display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 7vw; height: 100svh; max-width: 1080px; margin: 0 auto; padding: 0 40px; }
+.loop.is-live .loop-stage { position: relative; display: grid; place-items: center; justify-self: center; width: min(40vw, 62vh, 500px); aspect-ratio: 1; }
+.loop-stage canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+.loop-ring { position: absolute; inset: 9%; opacity: 0; }
+.loop-ring svg { width: 100%; height: 100%; }
+.loop-minutes { position: absolute; inset: 0; display: grid; place-content: center; margin: 0; text-align: center; font: 300 clamp(40px, 4.4vw, 60px)/1 var(--sans); font-variant-numeric: tabular-nums; }
+.loop-minutes small { margin-top: 10px; color: var(--ink3); font-size: 12px; letter-spacing: .12em; }
+.loop.is-live .loop-steps { grid-template-columns: 1fr; grid-template-areas: "step"; margin-top: 24px; }
+.loop.is-live .loop-step { grid-area: step; opacity: 0; transition: opacity .8s ease; }
+.loop.is-live .loop-step.is-active { opacity: 1; }
+
+/* 90秒の呼吸 — 画面いっぱいに。アプリの呼吸と同じ見た目（円相と波紋だけ） */
+.breath { position: fixed; inset: 0; z-index: 50; display: grid; place-items: center; align-content: center; gap: 36px; padding: 24px; background: var(--bg); animation: fade-in .8s ease; }
+@keyframes fade-in { from { opacity: 0; } }
+.breath-close { position: absolute; top: 16px; right: 16px; display: grid; place-items: center; width: 48px; height: 48px; border: 0; border-radius: 50%; background: none; color: var(--ink2); }
+.breath-close svg { width: 22px; height: 22px; }
+.breath-stage { position: relative; display: grid; place-items: center; width: min(76vw, 50vh, 400px); aspect-ratio: 1; }
+.breath-stage canvas { position: absolute; inset: 0; width: 100%; height: 100%; transform-origin: center; }
+.breath-ripple { position: absolute; left: 50%; top: 50%; border: 1px solid var(--ink2); border-radius: 50%; transform: translate(-50%, -50%); opacity: 0; pointer-events: none; }
+.breath-center { position: relative; text-align: center; }
+.breath-phase { min-height: 1.6em; margin: 0; font: 400 clamp(22px, 2.6vw, 28px)/1.6 var(--display); }
+html[lang="ja"] .breath-phase { letter-spacing: .3em; }
+.breath-count { min-height: 1.5em; margin: 6px 0 0; color: var(--ink3); font-size: 12px; letter-spacing: .14em; font-variant-numeric: tabular-nums; }
+.breath-done { text-align: center; animation: fade-in 1.2s ease; }
+.breath-done h2 { margin: 0 0 8px; font: 400 clamp(26px, 3vw, 34px)/1.4 var(--display); }
+html[lang="ja"] .breath-done h2 { letter-spacing: .16em; }
+.breath-done p { margin: 0; color: var(--ink2); }
+.breath-done .actions { margin-top: 28px; }

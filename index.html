@@ -3,95 +3,131 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ZENnoMA — Focus begins with a breath.</title>
-<meta name="description" content="Plan your day. Take a 90-second breath. Give one thing your attention. ZENnoMA brings planning, focus and meditation together, at your own pace.">
+<title>ZENnoMA | Focus begins with a breath</title>
+<meta name="description" content="When you can't focus, it isn't a lack of willpower. ZENnoMA settles you with ninety seconds of breathing, then begins your focus. No streaks, no ads, no tracking.">
 <meta name="theme-color" content="#050506">
-<meta property="og:title" content="ZENnoMA — Focus begins with a breath.">
-<meta property="og:description" content="Plan your day. Take a 90-second breath. Give one thing your attention. ZENnoMA brings planning, focus and meditation together, at your own pace.">
+<meta property="og:title" content="ZENnoMA | Focus begins with a breath">
+<meta property="og:description" content="ZENnoMA settles you with ninety seconds of breathing, then begins your focus.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://zennoma.com/">
 <link rel="canonical" href="https://zennoma.com/">
-<link rel="stylesheet" href="/site.css">
-<link rel="stylesheet" href="/landing.css">
-<link rel="icon" href="/assets/icon-192.png">
-<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="alternate" hreflang="en" href="https://zennoma.com/">
 <link rel="alternate" hreflang="ja" href="https://zennoma.com/ja/">
 <link rel="alternate" hreflang="x-default" href="https://zennoma.com/">
+<link rel="icon" href="/assets/icon-192.png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<script>document.documentElement.classList.add("js");try{if(localStorage.getItem("zennoma.site.theme")==="light")document.documentElement.dataset.theme="light"}catch(e){}</script>
+<link rel="stylesheet" href="/site.css">
+<link rel="stylesheet" href="/lp/lp.css">
+<link rel="stylesheet" href="/lp/lp-sections.css">
 <script src="/site.js" defer></script>
+<script type="module" src="/lp/scenes.js"></script>
+<script type="module" src="/lp/breath.js"></script>
 </head>
 <body class="landing">
 <a class="skip-link" href="#main">Skip to content</a>
-<div class="atmosphere" aria-hidden="true"></div>
 <header class="top">
   <a class="wordmark" href="/" aria-label="ZENnoMA"><img class="on-ink" src="/assets/brand-on-ink.png" alt="" width="144" height="48"><img class="on-paper" src="/assets/brand-on-paper.png" alt="" width="144" height="48"></a>
-  <nav class="site-nav" aria-label="On this page"><a href="#flow">Your day</a><a href="#practice">Focus &amp; meditation</a><a href="#promise">Our promises</a></nav>
   <div class="top-actions">
-    <button class="theme-toggle" type="button" data-theme-toggle aria-label="Use the light theme" hidden><svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"></path></svg><svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><path d="M20 15.5A8.5 8.5 0 0 1 8.5 4 8.5 8.5 0 1 0 20 15.5Z"></path></svg></button>
+    <button class="theme-toggle" type="button" data-theme-toggle aria-label="Use the light theme" hidden><svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></svg><svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><path d="M20 15.5A8.5 8.5 0 0 1 8.5 4 8.5 8.5 0 1 0 20 15.5Z"/></svg></button>
     <nav class="lang" aria-label="Language"><span aria-current="page">EN</span><a href="/ja/" hreflang="ja" lang="ja">日本語</a></nav>
   </div>
 </header>
-<main id="main" class="wrap">
+
+<main id="main">
   <section class="hero" aria-labelledby="hero-title">
-    <div class="hero-copy">
-      <p class="eyebrow" lang="en">A little space. A clearer focus.</p>
-      <h1 id="hero-title">Focus begins<br>with a breath.</h1>
-      <p class="hero-intro">Plan your day. Pause for a breath.<br>Give one thing your attention.<br>Your time, at your own pace.</p>
-      <div class="cta"><a class="button primary" href="https://app.zennoma.com">Begin on the web<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"></path></svg></a><a class="text-link" href="#flow">Meet ZENnoMA <span aria-hidden="true">↓</span></a></div>
-      <p class="availability">Basic focus and meditation are free. iOS app coming soon.</p>
+    <div class="hero-enso" aria-hidden="true">
+      <canvas data-hero-enso></canvas>
+      <img class="hero-still on-ink" src="/assets/enso-on-ink.png" alt="" width="1200" height="1200"><img class="hero-still on-paper" src="/assets/enso-on-paper.png" alt="" width="1200" height="1200">
     </div>
-    <div class="hero-visual">
-      <div class="enso-stage">
-        <img class="on-ink" src="/assets/enso-on-ink.png" alt="" width="640" height="640"><img class="on-paper" src="/assets/enso-on-paper.png" alt="" width="640" height="640">
-        <div class="enso-content"><div data-breath-initial><div class="breath-number">90</div><p class="breath-unit" lang="en">Seconds to begin</p></div><div data-breath-guide hidden><p class="breath-phase" data-breath-phase aria-live="polite" aria-atomic="true"></p><span class="breath-progress" data-breath-progress></span></div></div>
+    <h1 id="hero-title">Focus begins with a breath.</h1>
+    <p class="hero-lead">ZENnoMA settles you with ninety seconds of breathing, and then your focus begins.</p>
+    <div class="actions">
+      <button class="button primary" type="button" data-breath-open>Breathe for 90 seconds</button>
+      <a class="button quiet" href="https://app.zennoma.com">Open the web app</a>
+    </div>
+    <p class="small">Free to begin. The iPhone app is coming soon.</p>
+  </section>
+
+  <section class="why" aria-labelledby="why-title">
+    <h2 id="why-title" class="visually-hidden">Why ZENnoMA</h2>
+    <p class="manifesto"><span class="reveal">When you can't focus,</span><span class="reveal">it isn't a lack of willpower.</span><span class="reveal">You just haven't settled yet.</span></p>
+    <p class="why-body reveal">Some apps turn focus into a game. Others lock your phone. ZENnoMA does something that comes before both. It settles you first, with ninety seconds of breathing, and then you begin.</p>
+  </section>
+
+  <section class="loop" data-loop aria-labelledby="loop-title">
+    <div class="loop-sticky">
+      <div class="loop-stage" aria-hidden="true">
+        <canvas data-loop-enso></canvas>
+        <div class="loop-ring" data-loop-ring>
+          <svg viewBox="0 0 200 200"><circle class="ring-track" cx="100" cy="100" r="84"/><circle class="ring-mark" cx="192" cy="100" r="1.2"/><circle class="ring-mark" cx="100" cy="192" r="1.2"/><circle class="ring-mark" cx="8" cy="100" r="1.2"/><circle class="ring-arc" cx="100" cy="100" r="84" pathLength="1" transform="rotate(-90 100 100)"/><circle class="ring-head" cx="100" cy="16" r="3"/></svg>
+          <p class="loop-minutes">25<small>min</small></p>
+        </div>
       </div>
-      <button class="breath-toggle" type="button" data-breath-toggle aria-pressed="false" hidden><span class="breath-dot" aria-hidden="true"></span><span data-breath-toggle-label>Try 90 seconds of breathing</span></button>
-      <span class="visual-caption" lang="en" aria-hidden="true">BREATHE. FOCUS. BE HERE.</span>
+      <div class="loop-text">
+        <h2 id="loop-title" class="section-title">Breathe, focus, and begin again.</h2>
+        <ol class="loop-steps">
+          <li class="loop-step is-active" data-loop-step><h3>Breathe</h3><p>Breathe in for five seconds and out for eight, six times. A longer exhale slows the body down. You don't need to count. The circle is drawn with each breath.</p></li>
+          <li class="loop-step" data-loop-step><h3>Focus</h3><p>Twenty-five, forty-five or ninety minutes on the one thing you chose. There is no countdown, only a thin ring that slowly fills.</p></li>
+          <li class="loop-step" data-loop-step><h3>Again</h3><p>When it ends, rest, then come back in through the breath. The time you focused adds up, just as it is.</p></li>
+        </ol>
+      </div>
     </div>
   </section>
-  <div class="hero-bottom"><p>From planning your day to being here.</p><a href="#flow"><span aria-hidden="true">↓</span> SCROLL TO DISCOVER</a></div>
-  <ol class="steps reveal">
-    <li><span class="step-number">01</span><div><h2>Begin with a breath</h2><p>90 seconds to pause.<br>Follow the circle. In, then out.</p></div></li>
-    <li><span class="step-number">02</span><div><h2>Give one thing your time</h2><p>Choose what matters now.<br>Set a length and begin.</p></div></li>
-    <li><span class="step-number">03</span><div><h2>Come back, again</h2><p>Take a breath. Begin anew.<br>Always at your own pace.</p></div></li>
-  </ol>
-  <section id="flow" class="story" aria-labelledby="flow-title">
-    <div class="reveal"><p class="eyebrow" lang="en">Make room for now</p><h2 class="section-title" id="flow-title">See your day.<br>Be in this moment.</h2><div class="section-copy"><p>Time for focused work. Time to sit quietly.<br>Your everyday commitments, in one schedule.</p><p>Use a template for your usual day. Choose a focus block, and your task and duration are ready.<br>All that's left is a breath, and a beginning.</p></div><div class="small-rule"></div><p class="inline-note"><span>iPhone</span> See your calendar events alongside your plan.</p></div>
-    <div class="day-preview reveal" role="img" aria-label="An illustrative schedule: 45 minutes working on a proposal at 9 am, a team meeting at 10 am, and 10 minutes of meditation at 12:30 pm.">
-      <div class="preview-head"><span class="preview-title">Now</span><span class="preview-date">A little space in your morning.</span></div>
-      <p class="preview-quote">Just this moment.</p>
-      <div class="day-line current"><span class="day-time">09:00</span><div class="day-band"><strong>Finish the proposal</strong><small>Focus · 45 min</small></div></div>
-      <div class="day-line"><span class="day-time">10:00</span><div class="day-band"><strong>Meet with the team</strong><small>Plan · 30 min</small></div></div>
-      <div class="day-line"><span class="day-time">12:30</span><div class="day-band"><strong>A pause before the afternoon</strong><small>Meditation · 10 min</small></div></div>
-      <p class="preview-caption">An illustration of a day with ZENnoMA</p>
+
+  <section class="feature" aria-labelledby="day-title">
+    <div class="feature-text reveal">
+      <h2 id="day-title" class="section-title">Plan the day, then simply begin.</h2>
+      <p>Put focus, meditation and the rest of your day on one schedule. When the time comes, “This hour” shows what's next, and one tap starts the breath.</p>
+      <p class="small">Templates for your usual days. Calendar events beside your plan on iPhone, kept on your device. The same plan on iPhone and the web.</p>
     </div>
+    <figure class="shot reveal"><div class="shot-frame" data-shot="Now"><img src="/assets/shots/en/now.png" alt="The Now screen, with This hour and today's schedule" width="1179" height="2556" loading="lazy" onerror="this.hidden=true"></div></figure>
   </section>
-  <section id="practice" class="practice-section" aria-labelledby="practice-title">
-    <div class="section-heading reveal"><div><p class="eyebrow" lang="en">Two ways to be here</p><h2 id="practice-title" class="section-title">Time to do.<br>Time to sit.</h2></div><p>Choose the kind of time you need,<br>from the same quiet place.</p></div>
-    <div class="practices reveal">
-      <article class="practice"><div class="practice-image" aria-hidden="true"><img class="on-ink" src="/assets/enso-on-ink.png" alt="" width="116" height="116" loading="lazy"><img class="on-paper" src="/assets/enso-on-paper.png" alt="" width="116" height="116" loading="lazy"></div><div><p class="eyebrow" lang="en">Focus</p><h3>For what matters now.</h3><p>Work, study, or a book. Begin with a 90-second breath, then give your time to one thing.</p></div></article>
-      <article class="practice"><div class="practice-image" aria-hidden="true"><img class="on-ink" src="/assets/meditation-on-ink.png" alt="" width="116" height="116" loading="lazy"><img class="on-paper" src="/assets/meditation-on-paper.png" alt="" width="116" height="116" loading="lazy"></div><div><p class="eyebrow" lang="en">Meditation</p><h3>Notice your breath.</h3><p>Sit quietly and return your attention to your natural breathing. A little space for yourself, within your day.</p></div></article>
+
+  <section class="feature" aria-labelledby="sit-title">
+    <div class="feature-text reveal">
+      <h2 id="sit-title" class="section-title">A quiet place to sit.</h2>
+      <p>Meditation lives in the same app. Choose how long, choose a sound such as rain or a river, and sit with your natural breath.</p>
     </div>
+    <figure class="shot reveal"><div class="shot-frame" data-shot="Meditation"><img src="/assets/shots/en/meditation.png" alt="The meditation screen" width="1179" height="2556" loading="lazy" onerror="this.hidden=true"></div></figure>
   </section>
-  <section class="blocking reveal" aria-labelledby="blocking-title">
-    <div><p class="eyebrow" lang="en">A pause before the distraction</p><h2 id="blocking-title" class="section-title">Before you drift,<br>take a breath.</h2><div class="section-copy"><p>On iPhone, shield the apps you choose during focus, meditation, or a scheduled time block.</p><p>When you want to open one, pause for a breath. Then return to your time, or allow five minutes of access.<br>The choice is yours.</p></div></div>
-    <div class="shield-preview" role="img" aria-label="An illustration of the blocking feature, inviting you to breathe before opening a distracting app."><img class="on-ink" src="/assets/enso-on-ink.png" alt="" width="88" height="88" loading="lazy"><img class="on-paper" src="/assets/enso-on-paper.png" alt="" width="88" height="88" loading="lazy"><h3>You're focusing, right now.</h3><p>This time is for the thing you chose.</p><div class="shield-choice">A breath before you open it</div><p class="preview-caption">An illustration of app blocking on iPhone</p></div>
+
+  <section class="feature" aria-labelledby="drift-title">
+    <div class="feature-text reveal">
+      <h2 id="drift-title" class="section-title">When you drift, breathe.</h2>
+      <p>Lost in your feed? It happens to everyone. Take ninety seconds from the app, a widget or your Lock Screen, then go back to what you planned.</p>
+    </div>
+    <figure class="shot reveal"><div class="shot-frame" data-shot="Breathe"><img src="/assets/shots/en/breath.png" alt="The breathing screen" width="1179" height="2556" loading="lazy" onerror="this.hidden=true"></div></figure>
   </section>
-  <section id="promise" class="promise-section" aria-labelledby="promise-title">
-    <div class="reveal"><p class="eyebrow" lang="en">Our quiet promises</p><h2 id="promise-title" class="section-title">Your pace.<br>Your own way.</h2><a class="promise-link" href="/privacy">How we handle your data <span aria-hidden="true"> ↗</span></a></div>
-    <ol class="promises reveal">
-      <li><span class="promise-number">01</span><div><h3>Room to find your rhythm.</h3><p>No streaks, rankings, or badges. Your records simply reflect the time you've given.</p></div></li>
-      <li><span class="promise-number">02</span><div><h3>Your attention is yours.</h3><p>No advertising or analytics SDKs. We never sell your data.</p></div></li>
-      <li><span class="promise-number">03</span><div><h3>Only what's needed, where it's needed.</h3><p>Your plans and session records sync with your account. Calendar events, Health data, and Screen Time selections aren't sent to our servers.</p></div></li>
-    </ol>
+
+  <section class="feature" aria-labelledby="shield-title">
+    <div class="feature-text reveal">
+      <h2 id="shield-title" class="section-title">Close the apps that pull you away.</h2>
+      <p>On iPhone, the apps you choose stay closed while you focus or meditate, and during the times you set. If you really need one, breathe first, then open it.</p>
+    </div>
+    <figure class="shot reveal"><div class="shot-frame" data-shot="Closed app"><img src="/assets/shots/en/shield.png" alt="The screen shown when you open a closed app" width="1179" height="2556" loading="lazy" onerror="this.hidden=true"></div></figure>
   </section>
-  <section class="closing reveal" aria-labelledby="closing-title">
-    <img class="closing-mark on-ink" src="/assets/enso-on-ink.png" alt="" width="60" height="60" loading="lazy"><img class="closing-mark on-paper" src="/assets/enso-on-paper.png" alt="" width="60" height="60" loading="lazy">
-    <p class="eyebrow" lang="en">Your next moment</p><h2 class="section-title" id="closing-title">The next 25 minutes.<br>Make them yours.</h2>
-    <a class="button primary" href="https://app.zennoma.com">Begin on the web<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"></path></svg></a>
-    <p class="note">A 90-second breath into 25 minutes of focus.<br>Basic focus and 10-minute meditation are free. Some features require a paid plan.</p><p class="availability">iOS app coming soon.</p>
+
+  <section class="leave-out reveal" aria-labelledby="leave-title">
+    <h2 id="leave-title" class="section-title">What we leave out</h2>
+    <p>There are no streaks, badges or rankings. There are no ads, and we don't analyze how you use the app. What you see is how long you focused today and this week. That's all.</p>
+    <p>Your calendar, Health data and the apps you choose to close stay on your device. Your plans and records sync only to your own account. <a href="/privacy">Privacy Policy</a></p>
+  </section>
+
+  <section class="closing" aria-labelledby="closing-title">
+    <span class="closing-enso" aria-hidden="true"><img class="on-ink" src="/assets/enso-on-ink.png" alt="" width="160" height="160" loading="lazy"><img class="on-paper" src="/assets/enso-on-paper.png" alt="" width="160" height="160" loading="lazy"></span>
+    <h2 id="closing-title" class="section-title">Start with ninety seconds.</h2>
+    <div class="actions"><button class="button primary" type="button" data-breath-open>Breathe for 90 seconds</button><a class="button quiet" href="https://app.zennoma.com">Open the web app</a></div>
+    <p class="small">The basic loop is free: a breath, 25 minutes of focus and 10 minutes of meditation. Everything else comes with a subscription.</p>
   </section>
 </main>
+
+<div class="breath" data-breath data-inhale="Inhale" data-exhale="Exhale" role="dialog" aria-modal="true" aria-label="90 seconds of breathing" hidden>
+  <button class="breath-close" type="button" data-breath-close aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+  <div class="breath-stage"><div class="breath-ripple"></div><div class="breath-ripple"></div><canvas data-breath-enso></canvas><div class="breath-center"><p class="breath-phase" data-breath-phase aria-live="polite"></p><p class="breath-count" data-breath-count></p></div></div>
+  <div class="breath-done" data-breath-done hidden><h2>You're settled.</h2><p>Begin while it's still with you.</p><div class="actions"><a class="button primary" href="https://app.zennoma.com">Start focusing on the web</a><button class="button quiet" type="button" data-breath-again>Breathe again</button></div></div>
+</div>
+
 <footer class="foot"><nav aria-label="Information"><a href="/terms">Terms of Use</a><a href="/privacy">Privacy Policy</a><a href="/legal">Legal Notice</a><a href="/support">Support</a></nav><p>© 2026 YenSense Inc.</p></footer>
 </body>
 </html>
