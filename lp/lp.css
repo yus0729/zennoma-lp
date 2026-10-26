@@ -36,7 +36,8 @@ html.js .hero-enso .hero-still { display: none !important; }
 html:not(.js) .hero-enso canvas { display: none; }
 .hero h1 { margin: 0 0 16px; font: 400 clamp(32px, 4vw, 52px)/1.25 var(--display); }
 html[lang="ja"] .hero h1 { font-size: clamp(26px, 3.2vw, 40px); line-height: 1.6; letter-spacing: .16em; }
-.hero-lead { max-width: 30em; margin: 0; color: var(--ink2); font-size: 16px; line-height: 1.9; }
+/* 紹介文は幅による折り返しだけにし、PCでは一文を途中で区切らない。 */
+.hero-lead { max-width: 100%; margin: 0; color: var(--ink2); font-size: 16px; line-height: 1.9; }
 
 /* 考え方 — 売り物の主張（CLAUDE.md 第1節）。日本語は縦書き */
 .why { display: grid; justify-items: center; gap: 14vh; max-width: 1080px; margin: 0 auto; padding: 8vh 40px 22vh; }
