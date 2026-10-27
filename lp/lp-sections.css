@@ -60,6 +60,10 @@
   .plan-table th, .plan-table td { padding: 15px 8px; }
   .plan-table th:first-child { width: 42%; }
   .plan-table thead th:not(:first-child) { font-size: 18px; }
+  /* 英語の見出し「Subscription」が単語の途中で折れないよう、最後の列を広く・見出しを小さく（日本語の「購読」は短いので変えない） */
+  .plan-table:lang(en) th:first-child { width: 36%; }
+  .plan-table:lang(en) thead th:last-child { width: 36%; }
+  .plan-table:lang(en) thead th:not(:first-child) { font-size: 16px; overflow-wrap: normal; hyphens: auto; }
   .feature { padding-top: 9vh; padding-bottom: 9vh; }
   .landing .foot { display: block; }
   .landing .foot p { margin-top: 16px; }
